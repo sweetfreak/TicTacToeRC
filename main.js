@@ -50,13 +50,13 @@ function playerTurn(clickedButton) {
 
     if (xTurn == true) {
         clickedButton.textContent = 'x'
-        xsUsed.push(clickedButton.dataset.index)
+        xsUsed.push(parseInt(clickedButton.dataset.index))
         console.log(xsUsed)
         win = isWinningCombo(xsUsed)
 
     } else {
         clickedButton.textContent = 'o'
-        osUsed.push(clickedButton.dataset.index)
+        osUsed.push(parseInt(clickedButton.dataset.index))
         console.log(osUsed)
         console.log(isWinningCombo(osUsed))
         win = isWinningCombo(osUsed)
@@ -77,6 +77,35 @@ function isWinningCombo(playerMoves) {
     combo.every(index => playerMoves.includes(index))
   );
 }
+
+function computerTurn() {
+    //make sure it's the computer's turn
+
+    //randomly choose a number that isn't in the xs or ox
+    //create array - for 0-8, if number isn't in xs used or ox used, add it to
+   
+    const computerChoices = []
+    
+    for (let i = 0; i < 9; i++) {
+        if(xsUsed.includes(i) || osUsed.includes(i)) {
+            continue
+        } else {
+            computerChoices.push(i)
+        }
+
+       let i = Math.floor(Math.random() * (computerChoices.length))
+       const computerMove = computerChoices[i]
+
+        //find the button with the index i
+        //buttonEl.click()
+
+    }
+    
+    
+
+
+}
+
 
 // function checkForWin() {
     
